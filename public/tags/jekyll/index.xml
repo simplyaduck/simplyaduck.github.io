@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Jekyll on Jane - A super concise theme for Hugo</title>
+    <title>Jekyll on Simplyaduck</title>
     <link>http://localhost:1313/tags/jekyll/</link>
-    <description>Recent content in Jekyll on Jane - A super concise theme for Hugo</description>
+    <description>Recent content in Jekyll on Simplyaduck</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <managingEditor>me@example.com (Jane)</managingEditor>
-    <webMaster>me@example.com (Jane)</webMaster>
+    <managingEditor>me@example.com (Simplyaduck)</managingEditor>
+    <webMaster>me@example.com (Simplyaduck)</webMaster>
     <lastBuildDate>Mon, 10 Mar 2014 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="http://localhost:1313/tags/jekyll/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +17,7 @@
       <title>Migrate to Hugo from Jekyll</title>
       <link>http://localhost:1313/post/other/migrate-from-jekyll/</link>
       <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
-      <author>me@example.com (Jane)</author>
+      <author>me@example.com (Simplyaduck)</author>
       <guid>http://localhost:1313/post/other/migrate-from-jekyll/</guid>
       
         <description>&lt;h2 id=&#34;move-static-content-to-static&#34;&gt;Move static content to &lt;code&gt;static&lt;/code&gt;&lt;/h2&gt;

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Update on Jane - A super concise theme for Hugo</title>
+    <title>Update on Simplyaduck</title>
     <link>http://localhost:1313/tags/update/</link>
-    <description>Recent content in Update on Jane - A super concise theme for Hugo</description>
+    <description>Recent content in Update on Simplyaduck</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <managingEditor>me@example.com (Jane)</managingEditor>
-    <webMaster>me@example.com (Jane)</webMaster>
+    <managingEditor>me@example.com (Simplyaduck)</managingEditor>
+    <webMaster>me@example.com (Simplyaduck)</webMaster>
     <lastBuildDate>Fri, 20 Sep 2024 16:01:23 +0800</lastBuildDate>
     
         <atom:link href="http://localhost:1313/tags/update/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +17,7 @@
       <title>Jane Theme V3 Major Update</title>
       <link>http://localhost:1313/post/jane-theme-v3-major-update/</link>
       <pubDate>Fri, 20 Sep 2024 16:01:23 +0800</pubDate>
-      <author>me@example.com (Jane)</author>
+      <author>me@example.com (Simplyaduck)</author>
       <guid>http://localhost:1313/post/jane-theme-v3-major-update/</guid>
       
         <description>&lt;h2 id=&#34;update-content&#34;&gt;Update Content&lt;/h2&gt;
@@ -53,7 +53,7 @@
       <title>Jane 主题 V3 大版本更新</title>
       <link>http://localhost:1313/post/jane-theme-v3-major-update.zh-cn/</link>
       <pubDate>Fri, 20 Sep 2024 16:01:23 +0800</pubDate>
-      <author>me@example.com (Jane)</author>
+      <author>me@example.com (Simplyaduck)</author>
       <guid>http://localhost:1313/post/jane-theme-v3-major-update.zh-cn/</guid>
       
         <description>&lt;h2 id=&#34;更新内容&#34;&gt;更新内容&lt;/h2&gt;

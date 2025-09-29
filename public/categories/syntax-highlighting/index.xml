@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Syntax Highlighting on Jane - A super concise theme for Hugo</title>
+    <title>Syntax Highlighting on Simplyaduck</title>
     <link>http://localhost:1313/categories/syntax-highlighting/</link>
-    <description>Recent content in Syntax Highlighting on Jane - A super concise theme for Hugo</description>
+    <description>Recent content in Syntax Highlighting on Simplyaduck</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <managingEditor>me@example.com (Jane)</managingEditor>
-    <webMaster>me@example.com (Jane)</webMaster>
+    <managingEditor>me@example.com (Simplyaduck)</managingEditor>
+    <webMaster>me@example.com (Simplyaduck)</webMaster>
     <lastBuildDate>Tue, 30 Aug 2011 16:01:23 +0800</lastBuildDate>
     
         <atom:link href="http://localhost:1313/categories/syntax-highlighting/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +17,7 @@
       <title>Demo: Syntax Highlighting</title>
       <link>http://localhost:1313/post/demo/3-syntax-highlighting/</link>
       <pubDate>Tue, 30 Aug 2011 16:01:23 +0800</pubDate>
-      <author>me@example.com (Jane)</author>
+      <author>me@example.com (Simplyaduck)</author>
       <guid>http://localhost:1313/post/demo/3-syntax-highlighting/</guid>
       
         <description>&lt;p&gt;More detail: &lt;a href=&#34;https://gohugo.io/content-management/syntax-highlighting/&#34;&gt;Syntax Highlighting | Hugo&lt;/a&gt;&lt;/p&gt;

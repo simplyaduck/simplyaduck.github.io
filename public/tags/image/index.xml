@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Image on Jane - A super concise theme for Hugo</title>
+    <title>Image on Simplyaduck</title>
     <link>http://localhost:1313/tags/image/</link>
-    <description>Recent content in Image on Jane - A super concise theme for Hugo</description>
+    <description>Recent content in Image on Simplyaduck</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <managingEditor>me@example.com (Jane)</managingEditor>
-    <webMaster>me@example.com (Jane)</webMaster>
+    <managingEditor>me@example.com (Simplyaduck)</managingEditor>
+    <webMaster>me@example.com (Simplyaduck)</webMaster>
     <lastBuildDate>Sat, 03 Mar 2018 16:01:23 +0800</lastBuildDate>
     
         <atom:link href="http://localhost:1313/tags/image/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +17,7 @@
       <title>Demo: Image</title>
       <link>http://localhost:1313/post/demo/1-image/</link>
       <pubDate>Sat, 03 Mar 2018 16:01:23 +0800</pubDate>
-      <author>me@example.com (Jane)</author>
+      <author>me@example.com (Simplyaduck)</author>
       <guid>http://localhost:1313/post/demo/1-image/</guid>
       
         <description>&lt;p&gt;Thanks for &lt;a href=&#34;https://github.com/liwenyip/hugo-easy-gallery&#34;&gt;liwenyip/hugo-easy-gallery&lt;/a&gt; &amp;amp; &lt;a href=&#34;https://github.com/xianmin/hugo-theme-jane/pull/48&#34;&gt;Zebradil · Pull Request #48&lt;/a&gt; .&lt;/p&gt;

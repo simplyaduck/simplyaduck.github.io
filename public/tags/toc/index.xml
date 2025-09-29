@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Toc on Jane - A super concise theme for Hugo</title>
+    <title>Toc on Simplyaduck</title>
     <link>http://localhost:1313/tags/toc/</link>
-    <description>Recent content in Toc on Jane - A super concise theme for Hugo</description>
+    <description>Recent content in Toc on Simplyaduck</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <managingEditor>me@example.com (Jane)</managingEditor>
-    <webMaster>me@example.com (Jane)</webMaster>
+    <managingEditor>me@example.com (Simplyaduck)</managingEditor>
+    <webMaster>me@example.com (Simplyaduck)</webMaster>
     <lastBuildDate>Tue, 22 Feb 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="http://localhost:1313/tags/toc/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +17,7 @@
       <title>Demo: toc</title>
       <link>http://localhost:1313/post/demo/2-toc/</link>
       <pubDate>Tue, 22 Feb 2022 00:00:00 +0000</pubDate>
-      <author>me@example.com (Jane)</author>
+      <author>me@example.com (Simplyaduck)</author>
       <guid>http://localhost:1313/post/demo/2-toc/</guid>
       
         <description>&lt;h2 id=&#34;header&#34;&gt;Header&lt;/h2&gt;
@@ -54,7 +54,7 @@
       <title>Demo: toc, global toc is true, but this post should not show toc</title>
       <link>http://localhost:1313/post/other/test-toc/global-toc-except-this/</link>
       <pubDate>Mon, 21 Feb 2022 00:00:00 +0000</pubDate>
-      <author>me@example.com (Jane)</author>
+      <author>me@example.com (Simplyaduck)</author>
       <guid>http://localhost:1313/post/other/test-toc/global-toc-except-this/</guid>
       
         <description>&lt;h2 id=&#34;header&#34;&gt;Header&lt;/h2&gt;
@@ -91,7 +91,7 @@
       <title>no header, no toc</title>
       <link>http://localhost:1313/post/other/test-toc/no-header-dont-show-toc/</link>
       <pubDate>Sun, 20 Feb 2022 00:00:00 +0000</pubDate>
-      <author>me@example.com (Jane)</author>
+      <author>me@example.com (Simplyaduck)</author>
       <guid>http://localhost:1313/post/other/test-toc/no-header-dont-show-toc/</guid>
       
         <description>&lt;p&gt;This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.&lt;/p&gt;
