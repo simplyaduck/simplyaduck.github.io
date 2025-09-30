@@ -8,19 +8,21 @@
     <language>en</language>
     <managingEditor>me@example.com (Simplyaduck)</managingEditor>
     <webMaster>me@example.com (Simplyaduck)</webMaster>
-    <lastBuildDate>Wed, 30 Aug 2017 15:43:48 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 29 Sep 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="http://localhost:1313/categories/test/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>This is a very long title This is a very long title This is a very long title This is a very long title This is a very long title</title>
-      <link>http://localhost:1313/post/other/this-is-a-very-long-title/</link>
-      <pubDate>Wed, 30 Aug 2017 15:43:48 +0800</pubDate>
+      <title>Hello</title>
+      <link>http://localhost:1313/post/test/</link>
+      <pubDate>Mon, 29 Sep 2025 00:00:00 +0000</pubDate>
       <author>me@example.com (Simplyaduck)</author>
-      <guid>http://localhost:1313/post/other/this-is-a-very-long-title/</guid>
+      <guid>http://localhost:1313/post/test/</guid>
       
-        <description>&lt;p&gt;This is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long title&lt;/p&gt;
+        <description>&lt;p&gt;Hello&lt;/p&gt;
+&lt;p&gt;How are you?&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s write.&lt;/p&gt;
 </description>
       
     </item>
