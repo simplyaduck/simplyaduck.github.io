@@ -1,0 +1,6 @@
+
+/* If you want to change the size of specific elements: */
+body {
+    font-size: 15px;
+    line-height: 1.6; /* Adds a bit of space between lines for readability */
+}

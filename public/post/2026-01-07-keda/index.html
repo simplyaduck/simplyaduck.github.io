@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Using Keda | Simplyaduck</title>
+<meta name="keywords" content="keda, story, hpa, kubernetes">
+<meta name="description" content="Using KEDA
+TL;DR: What is KEDA?
+Kubernetes Event-Driven Autoscaling (KEDA) is an autoscaler that can be deployed into any Kubernetes cluster. It works on top of the standard Horizontal Pod Autoscaler (HPA) to extend functionality. There are two main reasons why you’d want to use it:
+
+You can scale to 0: Cool.
+You can scale off almost any metric: The list of built-in scalers is massive, and you can even build custom ones. If a metric exists, KEDA can probably scale on it.
+
+
+The Silly Dream: Scaling to 0
+I so badly just wanted to scale everything to 0. It&rsquo;s so cool and felt like an easy win for cost savings, with the only drawback being a slight startup and activation window delay.">
+<meta name="author" content="Chris">
+<link rel="canonical" href="http://localhost:1313/post/2026-01-07-keda/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.a090830a421002426baafbd314e38f149d77b4c48a12ee9312700d770b27fb26.css" integrity="sha256-oJCDCkIQAkJrqvvTFOOPFJ13tMSKEu6TEnANdwsn&#43;yY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/post/2026-01-07-keda/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Simplyaduck (Alt + H)">Simplyaduck</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Custom home page">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/post/" title="Posts">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Using Keda
+    </h1>
+    <div class="post-meta"><span title='2026-01-07 00:00:00 +0000 UTC'>January 7, 2026</span>&nbsp;·&nbsp;<span>Chris</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="using-keda">Using KEDA<a hidden class="anchor" aria-hidden="true" href="#using-keda">#</a></h1>
+<h3 id="tldr-what-is-keda"><strong>TL;DR: What is KEDA?</strong><a hidden class="anchor" aria-hidden="true" href="#tldr-what-is-keda">#</a></h3>
+<p>Kubernetes Event-Driven Autoscaling (KEDA) is an autoscaler that can be deployed into any Kubernetes cluster. It works on top of the standard <strong>Horizontal Pod Autoscaler (HPA)</strong> to extend functionality. There are two main reasons why you’d want to use it:</p>
+<ul>
+<li><strong>You can scale to 0:</strong> Cool.</li>
+<li><strong>You can scale off almost any metric:</strong> The list of built-in scalers is massive, and you can even build custom ones. If a metric exists, KEDA can probably scale on it.</li>
+</ul>
+<hr>
+<h3 id="the-silly-dream-scaling-to-0"><strong>The Silly Dream: Scaling to 0</strong><a hidden class="anchor" aria-hidden="true" href="#the-silly-dream-scaling-to-0">#</a></h3>
+<p>I so badly just wanted to scale everything to 0. It&rsquo;s so cool and felt like an easy win for cost savings, with the only drawback being a slight startup and activation window delay.</p>
+<p>But realistically, unless you’re being incredibly scrappy, few circumstances warrant scaling to 0. Most production workflows need to be &ldquo;always-on,&rdquo; and your staging environments should mirror production as closely as possible, so those stay up too. That leaves internal workloads, but those are often small enough that scaling to 0 doesn&rsquo;t provide a meaningful win—especially if it isn&rsquo;t enough to actually drop your node count.</p>
+<p>However, I’ve seen some success with scaling to 0 in these spots:</p>
+<ul>
+<li><strong>Infrequent, high-resource workloads:</strong> Rather than tearing down the infra every time, just let KEDA drop the replicas to 0 until the next job hits.</li>
+<li><strong>Message Queues:</strong> Specifically ones that can afford a 10–30 second delay while the pod spins up after a message becomes visible.</li>
+</ul>
+<hr>
+<h3 id="the-shiny-scaling-off-any-metric"><strong>The Shiny: Scaling Off Any Metric</strong><a hidden class="anchor" aria-hidden="true" href="#the-shiny-scaling-off-any-metric">#</a></h3>
+<p>This is where KEDA really stands out. Traditional HPA limits you to scaling on CPU or memory, which is inherently reactionary. By the time your CPU spikes, the load is already there, you’re already falling behind, and your app is struggling. Depending on how long your &ldquo;Time to Ready&rdquo; is, scaling this way can be too slow.</p>
+<p>Take the classic example of high-demand ticket sales: if you wait for the CPU to spike to add replicas, your app is likely already falling over. KEDA allows you to scale <em>ahead</em> of the resource pressure by looking at the source of the traffic (like the number of active sessions or messages in a queue).</p>
+<p>Alternatively, your constraints might not be resource-based at all. If your workload can only process <em>x</em> threads at a time, you might have a massive backlog even while your CPU usage looks perfectly fine.</p>
+<hr>
+<h3 id="the"><strong>The &ldquo;Devil in the Details&rdquo;</strong><a hidden class="anchor" aria-hidden="true" href="#the">#</a></h3>
+<p>I’m a huge fan of KEDA, honestly, it’s a no-brainer to use. But the &ldquo;devil in the details&rdquo; is the configuration. Using this tool effectively is knowing how to configure your scaler well, and it&rsquo;s not always easy.</p>
+<p>You think it’s going to be simple:</p>
+<ul>
+<li><strong>The Plan:</strong> “I have an app, I have a latency metric, I want to scale on latency. Let’s just set a threshold of 20ms.”</li>
+<li><strong>The Reality:</strong> “Oh, this metric is spikier than I thought! The pods are flapping (constantly scaling up and down).”</li>
+<li><strong>The Fix:</strong> “Okay, let me just increase the <code>stabilizationWindowSeconds</code>. That should ignore the spikes.”</li>
+<li><strong>The Result:</strong> “Now it’s flapping every 30 minutes instead of every 5!”</li>
+<li><strong>The Next Fix:</strong> “I’ll just add a rollup to smooth out the metric.”</li>
+<li><strong>The Result:</strong> “The rollup didn’t help much, and now I’ve lost precision because the data is averaged over too long a window. I&rsquo;ll just slow down the scale-up policy.”</li>
+<li><strong>The Final Realization:</strong> “Great, now it’s still flapping, but over a 1-hour window. Maybe the <code>minReplicas</code> is just too low? If we scale too far down, the latency climbs back up instantly!”</li>
+</ul>
+<p>And on, and on, and on&hellip; Between each of these steps are hours to days of monitoring to see how the changes actually behave in the wild.</p>
+<hr>
+<h3 id="final-thoughts"><strong>Final Thoughts</strong><a hidden class="anchor" aria-hidden="true" href="#final-thoughts">#</a></h3>
+<p>KEDA gives you incredible flexibility, but it’s easy to get lost in the weeds, especially with volatile workloads. Before you know it, you’re manually calculating every step of the HPA formula just to understand why your replica count is what it is.</p>
+<p>Ah metrics, the bane of my existence, our love-hate relationship will continue forever on. KEDA is still an awesome tool, and for the majority of workloads, you can &ldquo;set and forget&rdquo; it (just kidding, always monitor; dashboards, alerts, something something). I just wanted to share my tale of the trials involved</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/keda/">Keda</a></li>
+      <li><a href="http://localhost:1313/tags/story/">Story</a></li>
+      <li><a href="http://localhost:1313/tags/hpa/">Hpa</a></li>
+      <li><a href="http://localhost:1313/tags/kubernetes/">Kubernetes</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Simplyaduck</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

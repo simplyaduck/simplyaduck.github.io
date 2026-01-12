@@ -4,20 +4,16 @@
     <title>Sample on Simplyaduck</title>
     <link>http://localhost:1313/categories/sample/</link>
     <description>Recent content in Sample on Simplyaduck</description>
-    <generator>Hugo -- 0.150.0</generator>
+    <generator>Hugo -- 0.152.2</generator>
     <language>en</language>
-    <managingEditor>me@example.com (Simplyaduck)</managingEditor>
-    <webMaster>me@example.com (Simplyaduck)</webMaster>
     <lastBuildDate>Mon, 29 Sep 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/sample/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hello</title>
       <link>http://localhost:1313/post/test/</link>
-      <pubDate>Mon, 29 Sep 2025 00:00:00 +0000</pubDate><author>me@example.com (Simplyaduck)</author>
+      <pubDate>Mon, 29 Sep 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/post/test/</guid>
-      <description>&lt;p&gt;Hello&lt;/p&gt;
-&lt;p&gt;How are you?&lt;/p&gt;
-&lt;p&gt;Let&amp;rsquo;s write.&lt;/p&gt;</description>
+      <description>Desc Text.</description>
     </item>
   </channel>
 </rss>
