@@ -8,7 +8,6 @@ enableRobotsTXT = true
 enableEmoji = true
 theme = "PaperMod"
 
-hasCJKLanguage = true     # has chinese/japanese/korean ? 
 rssLimit = 20             # Limit Entry Count to Rss file 
 disqusShortname = ""      # disqus_shortname
 googleAnalytics = ""      # UA-XXXXXXXX-X
@@ -42,10 +41,12 @@ defaultContentLanguage = "en"           # Default language to use
   weight = 30
   identifier = "tags"
   pageref = "/tags/"
-# [[menu.main]]
-#   name = "external-link"
-#   weight = 50
-#   pageref = "https://gohugo.io"
+[[menu.main]]
+  name = "About"
+  weight = 40
+  identifier = "about"
+  pageref = "/about/"
+
 
 
 [params]
@@ -54,9 +55,9 @@ defaultContentLanguage = "en"           # Default language to use
   ShowPostNavLinks = true
   # rssFullContent = true     # if false, Rss feed instead of the summary
 
-  author.name = "Simplyaduck"      # essential                     # 必需
-  # author.email = "me@example.com" # optional, for RSS             # 可选
-  author.url = "/about"        # optional                      # 可选
+  # author.name = "Simplyaduck"      # essential                    
+  # author.email = "me@example.com" # optional, for RSS            
+  # author.url = "/about"        # optional                     
 
   # site info (optional)                               
   logoTitle = "simplyaduck"        # default: the title value  

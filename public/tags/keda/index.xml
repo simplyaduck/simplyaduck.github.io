@@ -6,14 +6,14 @@
     <description>Recent content in Keda on Simplyaduck</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 09 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 11 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/keda/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Using Keda</title>
       <link>http://localhost:1313/post/2026-01-09-keda/</link>
-      <pubDate>Fri, 09 Jan 2026 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 11 Jan 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/post/2026-01-09-keda/</guid>
-      <description>Desc Text.</description>
+      <description>A silly story of my experience using Keda.</description>
     </item>
   </channel>
 </rss>
